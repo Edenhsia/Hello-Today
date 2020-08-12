@@ -11,6 +11,7 @@ window.addEventListener('load', () => {
       lat = position.coords.latitude;
 
       const api = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
+      console.log(api);
 
       fetch(api)
         .then(response => {
