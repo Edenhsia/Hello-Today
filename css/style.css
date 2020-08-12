@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+@font-face {
+  font-family: "js-openhuninn-1.1";
+  src: local("js-openhuninn-1.1"),
+    url('/css/jf-openhuninn-1.1.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.weather {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.weather #icon {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+}
+
+#des {
+  font-size: 20px;
+  margin-bottom: .5em;
+}
+
+.weather-info span {
+  font-size: 24px;
+  color: #fff;
+  font-family: 'Major Mono Display',
+    monospace;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, .4) 0%, rgba(0, 0, 0, .4) 100%), url('https://picsum.photos/1000/400/?random=1') no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.time {
+  color: #fff;
+}
+
+.time span {
+  display: block;
+  font-size: 80px;
+  line-height: 1.2;
+  margin-bottom: .2em;
+  font-family: 'Major Mono Display',
+    monospace;
+}
+
+.time span:nth-child(3) {
+  margin-bottom: .5em;
+}
+
+.banner p {
+  font-size: 30px;
+  font-family: "jf-openhuninn-1.1", sans-serif;
+  letter-spacing: .1em;
+  color: #fff;
+  opacity: 0;
+  transition: 1s;
+}
+
+.banner p.appear {
+  opacity: 1;
+  transition: 1s;
+}
