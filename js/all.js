@@ -7,12 +7,10 @@ window.addEventListener('load', () => {
   //獲得所在地點經緯度
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
-      console.log(position);
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
       const api = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
-      console.log(api);
 
       fetch(api)
         .then(response => {
@@ -46,12 +44,10 @@ window.addEventListener('load', () => {
 
           //顯示溫度
           document.getElementById('temp').textContent = Math.floor(data.main.temp);
-        })
-
+        });
     })
-  } else {
-    console.log("It's not working")
   }
+
 })
 //banner 顯示時間
 function showDate() {
