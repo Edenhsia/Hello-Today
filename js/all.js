@@ -48,7 +48,9 @@ window.addEventListener('load', () => {
           document.getElementById('temp').textContent = Math.floor(data.main.temp);
         })
 
-    }), err => console.log(err);
+    })
+  } else {
+    console.log("It's not working")
   }
 })
 //banner 顯示時間
