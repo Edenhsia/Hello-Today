@@ -7,6 +7,7 @@ window.addEventListener('load', () => {
   //獲得所在地點經緯度
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
+      console.log(position);
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
@@ -47,7 +48,7 @@ window.addEventListener('load', () => {
           document.getElementById('temp').textContent = Math.floor(data.main.temp);
         })
 
-    })
+    }), err => console.log(err);
   }
 })
 //banner 顯示時間
