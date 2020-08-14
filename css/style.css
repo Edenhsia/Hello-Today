@@ -162,6 +162,16 @@ img {
   color: #184D47;
   border-bottom: 1px solid #184D47;
   margin-right: 5%;
+  caret-color: #184D47;
+}
+
+.todo-content input::placeholder {
+  color: #ccc;
+  transition: .5s;
+}
+
+.todo-content input:focus::placeholder {
+  color: transparent;
 }
 
 .todo-content button {

@@ -109,7 +109,7 @@ setInterval(function () {
 }, 15000);
 
 //todo
-let todos = JSON.parse(localStorage.getItem('todos')) || ['Click add button to add new to do', 'Click text to complete it', 'Click ⛔ to delete it ->'];
+let todos = JSON.parse(localStorage.getItem('todos')) || ['Click add button to add new to-do', 'Click text to complete it', 'Click ⛔ to delete it ->'];
 let compToDos = JSON.parse(localStorage.getItem('compToDos')) || [];
 const add = document.getElementById('add');
 
