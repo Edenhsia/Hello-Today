@@ -89,7 +89,12 @@ img {
 
 .banner p {
   font-size: 30px;
-  font-family: "jf-openhuninn-1.1", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+  font-family: 'Roboto Mono',
+    'js-openhuninn-1.1',
+    "微軟正黑體",
+    "Microsoft JhengHei",
+    monospace,
+    sans-serif;
   letter-spacing: .1em;
   color: #fff;
   opacity: 0;
