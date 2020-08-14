@@ -1,58 +1,58 @@
 import senData from './sentence.js';
 
 //weather
-// window.addEventListener('load', () => {
-//   let long;
-//   let lat;
+window.addEventListener('load', () => {
+  let long;
+  let lat;
 
-//   //獲得所在地點經緯度
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(position => {
-//       console.log(position);
-//       long = position.coords.longitude;
-//       lat = position.coords.latitude;
+  //獲得所在地點經緯度
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position);
+      long = position.coords.longitude;
+      lat = position.coords.latitude;
 
-//       // api from FreeCodeCamp
-//       const api = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
+      // api from FreeCodeCamp
+      const api = `https://fcc-weather-api.glitch.me/api/current?lat=${lat}&lon=${long}`;
 
-//       fetch(api)
-//         .then(response => {
-//           return response.json();
-//         })
-//         .then(data => {
-//           console.log(data);
-//           //獲得當下時間，決定白天或晚上
-//           let day;
-//           const now = new Date();
+      fetch(api)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data);
+          //獲得當下時間，決定白天或晚上
+          let day;
+          const now = new Date();
 
-//           if (now.getHours() > 18 || now.getHours() < 6) {
-//             day = "night";
-//           } else {
-//             day = "day";
-//           }
+          if (now.getHours() > 18 || now.getHours() < 6) {
+            day = "night";
+          } else {
+            day = "day";
+          }
 
-//           let iconName = data.weather[0].main;
-//           //用_替代空格，將字都變為小寫
-//           iconName = iconName.replace(/\s/g, '_').toLowerCase();
-//           //整理一些特殊情況的圖示 smoke, haze, dust, sand, ash
-//           const weatherSpecial = ["smoke", "haze", "dust", "sand", "ash"];
-//           if (weatherSpecial.indexOf(iconName) != -1) {
-//             iconName = "fog";
-//           }
-//           iconName = `${day}_${iconName}`;
+          let iconName = data.weather[0].main;
+          //用_替代空格，將字都變為小寫
+          iconName = iconName.replace(/\s/g, '_').toLowerCase();
+          //整理一些特殊情況的圖示 smoke, haze, dust, sand, ash
+          const weatherSpecial = ["smoke", "haze", "dust", "sand", "ash"];
+          if (weatherSpecial.indexOf(iconName) != -1) {
+            iconName = "fog";
+          }
+          iconName = `${day}_${iconName}`;
 
-//           //改變icon圖示
-//           document.getElementById('icon-src').src = `icons/${iconName}.png`;
+          //改變icon圖示
+          document.getElementById('icon-src').src = `icons/${iconName}.png`;
 
-//           //顯示天氣資訊
-//           document.getElementById('des').textContent = data.weather[0].description.toUpperCase();
+          //顯示天氣資訊
+          document.getElementById('des').textContent = data.weather[0].description.toUpperCase();
 
-//           //顯示溫度
-//           document.getElementById('temp').textContent = Math.floor(data.main.temp);
-//         });
-//     })
-//   }
-// })
+          //顯示溫度
+          document.getElementById('temp').textContent = Math.floor(data.main.temp);
+        });
+    })
+  }
+})
 
 //banner 顯示時間
 function showDate() {
