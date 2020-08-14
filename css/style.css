@@ -3,7 +3,7 @@
 @font-face {
   font-family: "js-openhuninn-1.1";
   src: local("js-openhuninn-1.1"),
-    url('/css/jf-openhuninn-1.1.ttf');
+    url('./jf-openhuninn-1.1.ttf');
 }
 
 * {
