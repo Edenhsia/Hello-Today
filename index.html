@@ -18,7 +18,7 @@
       <span><span id="temp">--</span>&#176;c</span>
     </div>
   </div>
-  <div class="banner">
+  <section class="section banner">
     <div class="text">
       <h2 class="time">
         <span id="day"></span>
@@ -27,8 +27,8 @@
       </h2>
       <p>天生我材必有用，天生我財更有用</p>
     </div>
-  </div>
-  <div class="todo">
+  </section>
+  <section class="section todo">
     <h2>Things to do</h2>
     <div class="todo-content">
       <form>
@@ -39,7 +39,54 @@
       </ul>
       <ul id="comp-list"></ul>
     </div>
-  </div>
+  </section>
+  <section class="section relaxer">
+    <h2>Relaxer</h2>
+    <div class="play-group">
+      <button id="text-btn">Start</button>
+      <span id="cycle-left">5 Cycles Left</span>
+      <svg class="circle-group" height="300" width="300">
+        <circle cx="150" cy="150" r="130" />
+        <circle id="moving-circle" cx="150" cy="150" r="130" />
+      </svg>
+    </div>
+    <div class="btn-group">
+      <div class="item">
+        <button class="btn active">Box</button>
+        <div class="des">
+          Box 呼吸，也被稱為「四方呼吸」，有助於放鬆及減緩焦慮。<br>
+          <br>
+          吸氣：4 秒<br>
+          憋氣：4 秒<br>
+          吐氣：4 秒<br>
+          憋氣：4 秒<br>
+        </div>
+      </div>
+      <div class="item">
+        <button class="btn">Ujjayi</button>
+        <div class="des">
+          Ujjayi 呼吸是一種在道教和瑜伽練習中使用的呼吸技巧，也被稱為「海洋呼吸」。<br>
+          <br>
+          吸氣：7 秒<br>
+          憋氣：0 秒<br>
+          吐氣：7 秒<br>
+          憋氣：0 秒<br>
+        </div>
+      </div>
+      <div class="item">
+        <button class="btn">4-7-8</button>
+        <div class="des">
+          4-7-8 呼吸，透過簡單的呼吸動作達成放鬆的方法，可以在失眠時幫助睡著。<br>
+          <br>
+          吸氣：4 秒<br>
+          憋氣：7 秒<br>
+          吐氣：8 秒<br>
+          憋氣：0 秒
+        </div>
+      </div>
+
+    </div>
+  </section>
   <script type="module" src="js/all.js"></script>
 </body>
 

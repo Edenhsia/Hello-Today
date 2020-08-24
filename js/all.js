@@ -193,3 +193,133 @@ function deleteItem(e, arrs) {
   e.target.parentElement.remove();
   arrs.splice(arrs.indexOf(deleteItem), 1);
 }
+
+//Relaxer
+const circle = document.getElementById('moving-circle');
+const circleLength = circle.getTotalLength();
+//circle的strokeDasharray ＝ 總圓周長
+circle.style.strokeDasharray = circleLength;
+//circle offset自身長度
+circle.style.strokeDashoffset = circleLength;
+
+let isClicked = false;
+let counter = 0;
+let timer = null;
+// let repeatTimes = 5;
+let repeatCounts = 5;
+const cycleText = document.getElementById("cycle-left");
+const textBtn = document.getElementById("text-btn");
+
+//預設為Box breathing
+let breathIn = 4;
+let breathOut = 4;
+let breathInHold = 4;
+let breathOutHold = 4;
+let total;
+
+textBtn.addEventListener('click', function () {
+  //點擊後，false變true，true變false
+  isClicked = !isClicked;
+  if (isClicked) {
+    startTimer();
+  } else {
+    stopTimer();
+  }
+});
+
+function startTimer() {
+  cycleText.textContent = "5 Cycles Left";
+  document.querySelector('.play-group span').style.display = "block";
+  total = breathIn + breathOut + breathInHold + breathOutHold;
+  counter++;
+  textBtn.textContent = 'Breathe In';
+  circle.style.strokeDashoffset = circleLength - (counter / breathIn) * circleLength;
+  timer = setInterval((() => {
+    counter++;
+    if (counter <= breathIn) {
+      //顯示剩下幾個Cycle
+      cycleText.textContent = repeatCounts > 1 ? `${repeatCounts} Cycles Left` : `1 Cycle Left`;
+      textBtn.textContent = 'Breathe In';
+      circle.style.strokeDashoffset = circleLength - (counter / breathIn) * circleLength;
+    } else if (counter <= breathIn + breathInHold) {
+      textBtn.textContent = 'Hold';
+    } else if (counter <= breathIn + breathInHold + breathOut) {
+      circle.style.strokeDashoffset = (counter - breathIn - breathInHold) /
+        breathOut * circleLength;
+      textBtn.textContent = 'Breathe Out';
+    } else if (counter < total) {
+      textBtn.textContent = 'Hold';
+    }
+    if (counter === total) {
+      counter = 0;
+      repeatCounts--;
+      let cycleText = document.getElementById('cycle-left');
+      console.log(repeatCounts);
+    }
+
+    if (repeatCounts === 0) {
+      setTimeout(stopTimer, 990);
+    }
+
+  }), 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  timer = null;
+  counter = 0;
+  repeatCounts = 5;
+  circle.style.strokeDashoffset = circleLength;
+  textBtn.textContent = 'Start';
+  isClicked = false;
+  document.querySelector('.play-group span').style.display = "none";
+}
+
+//下方按鈕選單
+const btns = document.querySelectorAll('.btn');
+const btnGroup = document.querySelector('.btn-group');
+
+btnGroup.addEventListener('click', changeExercise);
+
+function changeExercise(e) {
+  stopTimer();
+  if (e.target.localName === "button") {
+    //清除active樣式
+    btns.forEach((btn) => {
+      btn.className = 'btn';
+    });
+    //被點擊的按鈕新增active樣式
+    e.target.classList.add('active');
+    setExercise(e);
+  }
+}
+
+//設定每個 Exercise 所需時間
+function setExercise(e) {
+  switch (e.target.textContent) {
+    case "Box":
+      breathIn = 4;
+      breathOut = 4;
+      breathInHold = 4;
+      breathOutHold = 4;
+      break;
+
+    case "Ujjayi":
+      breathIn = 7;
+      breathOut = 7;
+      breathInHold = 0;
+      breathOutHold = 0;
+      break;
+
+    case "4-7-8":
+      breathIn = 4;
+      breathOut = 8;
+      breathInHold = 7;
+      breathOutHold = 0;
+      break;
+
+    default:
+      break;
+  }
+
+}
