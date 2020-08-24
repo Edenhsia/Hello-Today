@@ -94,13 +94,15 @@ button:focus {
 }
 
 .menu li .slider span {
+  font-family: 'Roboto Mono',
+    monospace;
   white-space: nowrap;
   opacity: 0;
   transition: .8s;
 }
 
 .menu li:hover .slider {
-  width: 120px;
+  width: 150px;
   transition: .5s;
 }
 
