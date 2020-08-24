@@ -253,8 +253,6 @@ function startTimer() {
     if (counter === total) {
       counter = 0;
       repeatCounts--;
-      let cycleText = document.getElementById('cycle-left');
-      console.log(repeatCounts);
     }
 
     if (repeatCounts === 0) {
