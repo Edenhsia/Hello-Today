@@ -11,6 +11,26 @@
 </head>
 
 <body>
+  <ul class="menu">
+    <li>
+      <span class="slider">
+        <span>Time</span>
+      </span>
+      <a href="#banner"><i class="fa fa-clock-o" aria-hidden="true"></i></a>
+    </li>
+    <li>
+      <span class="slider">
+        <span>To-Do List</span>
+      </span>
+      <a href="#todo"><i class="fa fa-list-ul" aria-hidden="true"></i></a>
+    </li>
+    <li>
+      <span class="slider">
+        <span>Relaxer</span>
+      </span>
+      <a href="#relaxer"><i class="fa fa-coffee" aria-hidden="true"></i></a>
+    </li>
+  </ul>
   <div class="weather">
     <div id="icon"><img id="icon-src" src="icons/day_clear.png" alt=""></div>
     <div class="weather-info">
@@ -18,7 +38,7 @@
       <span><span id="temp">--</span>&#176;c</span>
     </div>
   </div>
-  <section class="section banner">
+  <section class="section banner" id="banner">
     <div class="text">
       <h2 class="time">
         <span id="day"></span>
@@ -28,7 +48,7 @@
       <p>天生我材必有用，天生我財更有用</p>
     </div>
   </section>
-  <section class="section todo">
+  <section class="section todo" id="todo">
     <h2>Things to do</h2>
     <div class="todo-content">
       <form>
@@ -40,7 +60,7 @@
       <ul id="comp-list"></ul>
     </div>
   </section>
-  <section class="section relaxer">
+  <section class="section relaxer" id="relaxer">
     <h2>Relaxer</h2>
     <div class="play-group">
       <button id="text-btn">Start</button>

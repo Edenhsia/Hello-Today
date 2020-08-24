@@ -6,13 +6,17 @@
     url('./jf-openhuninn-1.1.ttf');
 }
 
-/* ================= 共用 =============== */
+/* ==================== 共用 ==================== */
 * {
   margin: 0;
   padding: 0;
   list-style: none;
   line-height: 1;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 img {
@@ -62,6 +66,62 @@ button {
 input:focus,
 button:focus {
   outline: none;
+}
+
+/* ==================== 個別設定 ==================== */
+.menu {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu li {
+  text-align: right;
+  color: #fff;
+  position: relative;
+}
+
+.menu li .slider {
+  border-radius: 60px 0 0 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  line-height: 60px;
+  position: absolute;
+  right: 100%;
+  text-align: center;
+  width: 0;
+  transition: width .5s .1s;
+}
+
+.menu li .slider span {
+  white-space: nowrap;
+  opacity: 0;
+  transition: .8s;
+}
+
+.menu li:hover .slider {
+  width: 120px;
+  transition: .5s;
+}
+
+.menu li:hover .slider span {
+  opacity: 1;
+  transition: 1s .2s;
+}
+
+.menu a {
+  display: inline-block;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgba(0, 0, 0, 0.5);
+  line-height: 60px;
+  width: 60px;
+}
+
+.menu .fa {
+  vertical-align: middle;
 }
 
 .weather {
