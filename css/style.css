@@ -69,6 +69,13 @@ button:focus {
 }
 
 /* ==================== 個別設定 ==================== */
+h1 {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
 .menu {
   position: fixed;
   right: 0;
