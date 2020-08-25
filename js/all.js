@@ -1,6 +1,6 @@
 import senData from './sentence.js';
 
-//weather
+// =================================== banner weather ===================================
 window.addEventListener('load', () => {
   let long;
   let lat;
@@ -54,15 +54,9 @@ window.addEventListener('load', () => {
   }
 })
 
-//banner 顯示時間
+// =================================== banner time ===================================
 function showDate() {
   const today = new Date();
-  // const options = {
-  //   weekday: 'short',
-  //   year: 'numeric',
-  //   month: 'short',
-  //   day: '2-digit'
-  // }
   const dayOpt = {
     weekday: 'short'
   }
@@ -86,11 +80,11 @@ function showTime() {
   const h = (today.getHours() < 10 ? '0' : '') + today.getHours();
   const m = (today.getMinutes() < 10 ? '0' : '') + today.getMinutes();
   const s = (today.getSeconds() < 10 ? '0' : '') + today.getSeconds();
-
   const time = `${h}:${m}:${s}`;
   document.getElementById('time').textContent = time;
 }
 
+//banner 隨機挑一句話
 function randomSen() {
   const num = Math.floor(Math.random() * senData.length);
   const sentence = senData[num].content;
@@ -102,20 +96,20 @@ showDate();
 showTime();
 randomSen();
 setInterval(showTime, 1000);
-//banner 隨機挑一句話
 setInterval(function () {
   document.querySelector('p').classList.remove('appear');
   setTimeout(randomSen, 1000);
 }, 15000);
 
-//todo
-let todos = JSON.parse(localStorage.getItem('todos')) || ['Click add button to add new to-do', 'Click text to complete it', 'Click ⛔ to delete it ->'];
-let compToDos = JSON.parse(localStorage.getItem('compToDos')) || [];
+// =================================== todo ===================================
+const todos = JSON.parse(localStorage.getItem('todos')) || ['Click add button to add new to-do', 'Click text to complete it', 'Click ⛔ to delete it ->'];
+const compToDos = JSON.parse(localStorage.getItem('compToDos')) || [];
 const add = document.getElementById('add');
 
 showToDos();
 showCompToDos();
 
+//新增todo
 add.addEventListener('click', function (e) {
   e.preventDefault();
   const newToDo = document.querySelector('input').value;
@@ -128,16 +122,19 @@ add.addEventListener('click', function (e) {
   }
 });
 
-//刪除li或是complete
+//刪除todo或是將todo顯示為完成
 document.getElementById('list').addEventListener('click', (e) => {
+  //刪除todo
   if (e.target.classList.contains('fa-minus-circle')) {
     deleteItem(e, todos);
     localStorage.setItem('todos', JSON.stringify(todos));
-  } else if (e.target.localName === "li") {
+  }
+  //將todo顯示為完成
+  else if (e.target.localName === "li") {
     e.target.classList.toggle('completed');
     if (e.target.classList.contains('completed')) {
       const compItem = e.target.textContent;
-      compToDos = compToDos.concat(todos.splice(todos.indexOf(compItem), 1));
+      compToDos.push(todos.splice(todos.indexOf(compItem), 1));
       document.getElementById('comp-list').appendChild(e.target);
       localStorage.setItem('todos', JSON.stringify(todos));
       localStorage.setItem('compToDos', JSON.stringify(compToDos));
@@ -150,11 +147,10 @@ document.getElementById('comp-list').addEventListener('click', (e) => {
     deleteItem(e, compToDos);
     localStorage.setItem('compToDos', JSON.stringify(compToDos));
   } else if (e.target.localName === "li") {
-    console.log(e.target);
     e.target.classList.toggle('completed');
     if (!e.target.classList.contains('completed')) {
       const item = e.target.textContent;
-      todos = todos.concat(compToDos.splice(compToDos.indexOf(item), 1));
+      todos.push(compToDos.splice(compToDos.indexOf(item), 1));
       document.getElementById('list').appendChild(e.target);
       localStorage.setItem('todos', JSON.stringify(todos));
       localStorage.setItem('compToDos', JSON.stringify(compToDos));
@@ -162,17 +158,16 @@ document.getElementById('comp-list').addEventListener('click', (e) => {
   }
 })
 
-
-//顯示ToDos
+//顯示todos
 function showToDos() {
   todos.map((todo) => addToList(todo));
 }
-
+//顯示已完成todos
 function showCompToDos() {
   compToDos.map((todo) => addToCompList(todo));
 }
 
-//新增li
+//新增todo
 function addToList(item) {
   const list = document.getElementById('list');
   const li = document.createElement('li');
@@ -187,14 +182,14 @@ function addToCompList(item) {
   li.innerHTML = `${item}<i class="fa fa-minus-circle"></i>`;
   list.appendChild(li);
 }
-
+//刪除todo
 function deleteItem(e, arrs) {
   const deleteItem = e.target.parentElement.textContent;
   e.target.parentElement.remove();
   arrs.splice(arrs.indexOf(deleteItem), 1);
 }
 
-//Relaxer
+// =================================== Relaxer ===================================
 const circle = document.getElementById('moving-circle');
 const circleLength = circle.getTotalLength();
 //circle的strokeDasharray ＝ 總圓周長
@@ -205,7 +200,6 @@ circle.style.strokeDashoffset = circleLength;
 let isClicked = false;
 let counter = 0;
 let timer = null;
-// let repeatTimes = 5;
 let repeatCounts = 5;
 const cycleText = document.getElementById("cycle-left");
 const textBtn = document.getElementById("text-btn");
@@ -319,5 +313,4 @@ function setExercise(e) {
     default:
       break;
   }
-
 }
