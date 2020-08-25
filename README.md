@@ -1,5 +1,6 @@
 # Hello, today
 這是一個給你一點厭世，但又讓你感到放鬆的網站
+https://edenhsia.github.io/Hello-Today/
 
 ## 注意事項
 - 請記得允許網站使用您的位置，以取得天氣資訊
