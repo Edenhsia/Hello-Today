@@ -126,6 +126,25 @@ button:focus {
   vertical-align: middle;
 }
 
+.menu #todo-left {
+  font-family: 'Roboto Mono',
+    monospace;
+  font-size: 14px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #edbb4c;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+}
+
+.menu #todo-left:empty {
+  background-color: transparent;
+}
+
 .weather {
   position: absolute;
   top: 20px;

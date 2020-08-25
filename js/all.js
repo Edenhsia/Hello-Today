@@ -117,6 +117,7 @@ add.addEventListener('click', function (e) {
   if (newToDo.replace(/(^\s*)/g, '').length !== 0) {
     todos.push(newToDo);
     addToList(newToDo);
+    showToDosLeft();
     localStorage.setItem('todos', JSON.stringify(todos));
     document.querySelector('input').value = '';
   }
@@ -128,6 +129,7 @@ document.getElementById('list').addEventListener('click', (e) => {
   if (e.target.classList.contains('fa-minus-circle')) {
     deleteItem(e, todos);
     localStorage.setItem('todos', JSON.stringify(todos));
+    showToDosLeft();
   }
   //將todo顯示為完成
   else if (e.target.localName === "li") {
@@ -138,6 +140,7 @@ document.getElementById('list').addEventListener('click', (e) => {
       document.getElementById('comp-list').appendChild(e.target);
       localStorage.setItem('todos', JSON.stringify(todos));
       localStorage.setItem('compToDos', JSON.stringify(compToDos));
+      showToDosLeft();
     }
   }
 })
@@ -154,6 +157,7 @@ document.getElementById('comp-list').addEventListener('click', (e) => {
       document.getElementById('list').appendChild(e.target);
       localStorage.setItem('todos', JSON.stringify(todos));
       localStorage.setItem('compToDos', JSON.stringify(compToDos));
+      showToDosLeft();
     }
   }
 })
@@ -161,7 +165,19 @@ document.getElementById('comp-list').addEventListener('click', (e) => {
 //顯示todos
 function showToDos() {
   todos.map((todo) => addToList(todo));
+  showToDosLeft();
 }
+
+//在選單中顯示有幾個未完成todo
+function showToDosLeft() {
+  const todoLeft = document.getElementById('todo-left');
+  if (todos.length !== 0) {
+    todoLeft.textContent = todos.length;
+  } else {
+    todoLeft.textContent = '';
+  }
+}
+
 //顯示已完成todos
 function showCompToDos() {
   compToDos.map((todo) => addToCompList(todo));
