@@ -12,5 +12,4 @@ https://edenhsia.github.io/Hello-Today/
 - 背景圖：[Sebastian Unrau from Unsplash](https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80)
 - 語錄：[堅果創意工作室-366天心痛日曆](https://www.books.com.tw/products/0010837933?sloc=main)
 - 字體：
-    - 英文：[Roboto Mono from Google Fonts](https://fonts.google.com/specimen/Roboto+Mono)
-    - 中文：[open 粉圓](https://justfont.com/huninn/)
+    - [Roboto Mono from Google Fonts](https://fonts.google.com/specimen/Roboto+Mono)
