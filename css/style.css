@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
 
-@font-face {
-  font-family: "js-openhuninn-1.1";
-  src: local("js-openhuninn-1.1"),
-    url('./jf-openhuninn-1.1.ttf');
-}
-
 /* ==================== 共用 ==================== */
 * {
   margin: 0;
@@ -222,7 +216,6 @@ h1 {
 .banner p {
   font-size: 30px;
   font-family: 'Roboto Mono',
-    'js-openhuninn-1.1',
     "微軟正黑體",
     "Microsoft JhengHei",
     monospace,
@@ -266,7 +259,7 @@ h1 {
 .todo-content input {
   width: 75%;
   padding: 0 .5em;
-  font-family: 'Roboto Mono', 'js-openhuninn-1.1', "微軟正黑體", "Microsoft JhengHei", monospace, sans-serif;
+  font-family: 'Roboto Mono', "微軟正黑體", "Microsoft JhengHei", monospace, sans-serif;
   color: #184D47;
   border-bottom: 1px solid #184D47;
   margin-right: 5%;
@@ -297,7 +290,7 @@ h1 {
 }
 
 .todo-content li {
-  font-family: 'Roboto Mono', 'js-openhuninn-1.1', "微軟正黑體", "Microsoft JhengHei", monospace, sans-serif;
+  font-family: 'Roboto Mono', "微軟正黑體", "Microsoft JhengHei", monospace, sans-serif;
   font-size: 24px;
   padding: .8em 1em;
   margin-bottom: .5em;
@@ -416,7 +409,6 @@ circle:first-child {
 
 .btn-group .des {
   font-family: 'Roboto Mono',
-    'js-openhuninn-1.1',
     "微軟正黑體",
     "Microsoft JhengHei",
     monospace,
